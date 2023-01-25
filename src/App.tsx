@@ -6,6 +6,7 @@ import { lightTheme } from './views/styles/theme';
 import { Provider } from 'react-redux';
 import { store } from './config/store';
 import AbountScreen from './views/screens/about/AbountScreen';
+import LoanScreen from './views/screens/loan/LoanScreen';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomeScreen />} />
           <Route path="/about-us" element={<AbountScreen />} />
+          <Route path="/loan" element={<LoanScreen />} />
         </Routes>
         </Provider>
       </ThemeProvider>

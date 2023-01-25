@@ -1,9 +1,8 @@
-import { Link } from 'react-router-dom';
 import Footer from '../../components/footer/Footer';
 import Header from '../../components/header/Header';
 import { Content, TopSection, Hero, Wrapper, SectionTwo, SectionThree, SectionOne } from "./styles";
 
-const AbountScreen = () => {
+const LoanScreen = () => {
     return (
         <Wrapper>
             <Content>
@@ -11,13 +10,12 @@ const AbountScreen = () => {
                     <Header />
                     <Hero>
                         <div className="text-wrapper">
-                            <h2>Doshpal for you;</h2>
-                            <h3>Credit for all</h3>
-                            <span>Doshpal, a subsidiary of Kredify, is derived from two words, 'Dosh' and 'Pal', meaning 'Cash' and 'Friend'.<br /><br /> Kredify is a registered financial service company and your one-stop to getting short to medium-term financing. <br /><br /> This opportunity applies to individuals and small and medium-sized enterprises in Nigeria.</span>
+                            <h3>With Personal Loan you get up to 3m</h3>
+                            <span>When you run into an emergency, it's possible not to have the funds to take care of your urgent needs. Doshpal can come through for you!<br /><br /> With proper planning, a personal loan can fill a void in your budget without risking your home or assets. <br /><br /> We’ve got you covered with our quick loans! Get up to 3 million on loans for as low as 3.5% interest today.</span>
                         </div>
 
                         <div className="img-sec">
-                            <img src="/img/about-hero-img.png" alt="banner" />
+                            <img src="/img/loan-img.png" alt="banner" />
                         </div>
                     </Hero>
                 </TopSection>
@@ -42,7 +40,7 @@ const AbountScreen = () => {
                             <li>Quick credit with our numerous loan products.</li>
                         </ul>
                         
-                        <Link to="/loan">Apply for loan</Link>
+                        <a href="#">Apply for loan</a>
                     </div>
                     <div className="img-wrapper">
                         <img src="/img/stand-with-us-img.png" alt="" />
@@ -55,4 +53,4 @@ const AbountScreen = () => {
     );
 }
  
-export default AbountScreen;
+export default LoanScreen;

@@ -19,19 +19,8 @@ export const Hero = styled.div`
         flex: 1;
         margin-bottom: 40px;
         max-width: 520px;
-        h2 {
-            color: ${props => props.theme.primaryColor};
-            font-size: 33px;
-            line-height: 45px;
-            font-weight: 700;
-
-            @media screen and (min-width: 880px) {
-                font-size: 40px;
-                line-height: 50px;
-            }
-        }
         h3 {
-            color: ${props => props.theme.secondaryColor};
+            color: ${props => props.theme.primaryColor};
             font-size: 33px;
             line-height: 45px;
             font-weight: 700;
@@ -53,11 +42,7 @@ export const Hero = styled.div`
     }
 
     .img-sec {
-        display: flex;
-        justify-content: center;
-        max-height: 100%;
-        width: 480px;
-        object-fit: contain;
+        display: block;
     }
 
     @media screen and (min-width: 880px) {
