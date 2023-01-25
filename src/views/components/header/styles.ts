@@ -13,48 +13,125 @@ export const Wrapper = styled.div`
         }
 
     }
-     nav {
-        display: none;
-        ul {
-            display: flex;
-        }
-     }
 
-     .toggle-menu {
+    .toggle-menu {
         display: block;
         font-size: 30px;
         color: ${props => props.theme.primaryColor};
         cursor: pointer;
      }
-
-     @media screen and (min-width: 640px) {
+    
+    @media screen and (min-width: 640px) {
         .toggle-menu {
             display: none;
         }
-        nav {
+    }
+`;
+export const NavigationWrapper = styled.nav<{navigationState: boolean}>`
+    visibility: ${props => props.navigationState ? "visible" : "hidden"};
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    ul {
+        width: 240px;
+        height: 100vh;
+        background: #fff;
+        padding: 20px 0px;
+        position: relative;
+        z-index: 9999;
+        left: ${props => props.navigationState ? "0px" : "-240px"};
+        top: 0px;
+        transition: all 0.2s ease-in-out;
+
+        display: flex;
+        flex-direction: column;
+
+        .nav-logo {
             display: block;
-            ul {
-                display: flex;
-                align-items: center;
-                li {
-                    margin-left: 40px;
-
+            padding: 20px 20px;
+            border-bottom: 1px solid #f7f7f7;
+        }
+        li {
+            padding: 0px 20px;
+            a {
+                display: block;
+                padding: 15px 20px;
+                color: #1C1D1F;
+                white-space: nowrap;
+                font-size: 14px;
+                font-weight: 400;
+                font-family: 'Lato', sans-serif;
+            }
+            
+            :last-child {
                     a {
-                        display: block;
-                        color: #1E1E1E;
+                        background-color: ${props => props.theme.secondaryColor};
+                        padding: 13px 30px;
+                        border-radius: 3px;
+                        color: #fff;
                         font-size: 13px;
-                        font-weight: 400;
+                        font-weight: 600;
                     }
+                }
+        }
+    }
 
-                    :last-child {
-                        a {
-                            background-color: ${props => props.theme.secondaryColor};
-                            padding: 10px 30px;
-                            border-radius: 8px;
-                            color: #fff;
-                            font-size: 13px;
-                            font-weight: 600;
-                        }
+    ::before {
+        content: "";
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        display: ${props => props.navigationState ? "block" : "none"};
+        height: 100vh;
+        width: 100%;
+        background-color: ${props => props.navigationState ? "#0006" : "transparent"};
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+        z-index: 999;
+        @media screen and (min-width: 990px) {
+            background-color: transparent;
+            width: 0px;
+            height: unset;
+        }
+    }
+
+     @media screen and (min-width: 640px) {
+        display: block;
+        position: unset;
+        visibility: visible;
+        ul {
+            display: flex;
+            left: unset;
+            top: unset;
+            flex-direction: row;
+            align-items: center;
+            width: unset;
+            height: unset;
+            background: transparent;
+            padding: unset;
+
+            .nav-logo {
+                display: none;
+            }
+            li {
+                margin-left: 40px;
+                padding: unset;
+
+                a {
+                    display: block;
+                    color: #1E1E1E;
+                    font-size: 13px;
+                    font-weight: 400;
+                }
+
+                :last-child {
+                    a {
+                        background-color: ${props => props.theme.secondaryColor};
+                        padding: 10px 30px;
+                        border-radius: 8px;
+                        color: #fff;
+                        font-size: 13px;
+                        font-weight: 600;
                     }
                 }
             }

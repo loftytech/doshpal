@@ -56,7 +56,8 @@ export const Hero = styled.div`
         display: flex;
         justify-content: center;
         max-height: 100%;
-        width: 480px;
+        /* width: 480px; */
+        max-width: 100%;
         object-fit: contain;
     }
 

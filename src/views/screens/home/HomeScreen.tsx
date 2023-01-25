@@ -1,4 +1,5 @@
 import { BsArrowRight, BsChevronLeft, BsChevronRight } from 'react-icons/bs'
+import { Link } from 'react-router-dom';
 import Footer from '../../components/footer/Footer';
 import Header from '../../components/header/Header';
 import { Content, TopSection, Hero, Wrapper, SectionOne, FeatureWrapper, FeatureCard, SectionTwo, SectionThree, SectionFour, SectionFive, SectionSix } from "./styles";
@@ -117,8 +118,8 @@ const HomeScreen = () => {
 
                         <h4>Loan Type</h4>
                         <div className="load-action-row">
-                            <a href="#">Personal Loan</a>
-                            <a href="#">Business Loan</a>
+                            <Link to="/loan">Personal Loan</Link>
+                            <Link to="/business-loan">Business Loan</Link>
                         </div>
                     </div>
                     <div className="info-sec">

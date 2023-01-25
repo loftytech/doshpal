@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import { store } from './config/store';
 import AbountScreen from './views/screens/about/AbountScreen';
 import LoanScreen from './views/screens/loan/LoanScreen';
+import BusinessLoanScreen from './views/screens/business_loan/BusinessLoanScreen';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<HomeScreen />} />
           <Route path="/about-us" element={<AbountScreen />} />
           <Route path="/loan" element={<LoanScreen />} />
+          <Route path="/business-loan" element={<BusinessLoanScreen />} />
         </Routes>
         </Provider>
       </ThemeProvider>
