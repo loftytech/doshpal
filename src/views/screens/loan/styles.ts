@@ -7,7 +7,7 @@ export const Content = styled.div`
     
 `;
 export const TopSection = styled.div`
-    background: #FBF8FF;
+    background: #FFFFFF;
 `;
 export const Hero = styled.div`
     display: flex;

@@ -26,7 +26,7 @@ const Header: React.FC = () => {
                     <div className="nav-logo"><Link to={"/"} ><img src="/img/logo.png" alt="site logo" /></Link></div>
                     <li><Link to="/">Products</Link></li>
                     <li><Link to="/about-us">About Us</Link></li>
-                    <li><Link to="/loan">Apply for loan</Link></li>
+                    <li><Link to="/loan-apply">Apply for loan</Link></li>
                 </ul>
             </NavigationWrapper>
 
