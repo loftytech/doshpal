@@ -9,14 +9,6 @@ import { Content, TopSection, Hero, Wrapper, SectionThree, RangeSlider } from ".
 const Range = ({onMove = (value: any) => {}, value=0}) => {
     const firstSliderRef = useRef<HTMLDivElement>(null);
     const [slidePercentage, setSlidePercentage] = useState<string>("0")
-    // const [onPressSlider, setOnPressSlider] = useState<boolean>(false);
-
-    // const onClickFirstSlider = (e: any) => {
-    //     e.preventDefault();
-    //     console.log('====================================');
-    //     console.log("clicked boss");
-    //     console.log('====================================');
-    // }
     let onPressSlider = false;
     const setOnPressSlider = (value: boolean) => {
         onPressSlider = value
@@ -25,10 +17,6 @@ const Range = ({onMove = (value: any) => {}, value=0}) => {
         const xOffset = firstSliderRef.current!.offsetLeft;
         const percentage = Math.floor(((e.clientX - xOffset)/firstSliderRef.current!.clientWidth)*100);
         setSlidePercentage(percentage.toString())
-
-        // console.log('====================================');
-        // console.log(percentage, " percentage");
-        // console.log('====================================');
         onMove(percentage)
     }
 
@@ -48,7 +36,7 @@ const LoanCalculator = () => {
     const [percentageMonthSlider, setPercentageMonthSlider] = useState<number>(0);
 
     const getAmount = (percentage: number) : number => {
-        return ((1900000 * (percentage/100))+1000000)
+        return ((1900000 * (percentage/100))+100000)
     }
 
     const getInterestRate = (percentage: number) => {
