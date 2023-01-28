@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
     a {
         display: block;
         img {
-            height: 30px;
+            height: 34px;
         }
 
     }
@@ -120,14 +120,14 @@ export const NavigationWrapper = styled.nav<{navigationState: boolean}>`
                 a {
                     display: block;
                     color: #1E1E1E;
-                    font-size: 13px;
+                    font-size: 16px;
                     font-weight: 400;
                 }
 
                 :last-child {
                     a {
                         background-color: ${props => props.theme.secondaryColor};
-                        padding: 10px 30px;
+                        padding: 15px 34px;
                         border-radius: 8px;
                         color: #fff;
                         font-size: 13px;

@@ -12,16 +12,16 @@ export const FooterWrapper = styled.div`
         gap: 8%;
 
         img {
-            width: 150px;
+            width: 180px;
             margin-bottom: 20px;
         }
     
         p {
             color: #3A393A;
-            font-size: 13px;
-            font-weight: 400;
-            line-height: 18px;
-            margin-bottom: 20px;
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 25px;
+            margin-bottom: 25px;
             max-width: 640px;
         }
 
@@ -38,6 +38,8 @@ export const FooterWrapper = styled.div`
 
             img {
                 margin-bottom: 0px;
+                width: unset;
+                height: 60px;
             }
 
             p {
@@ -53,15 +55,15 @@ export const FooterWrapper = styled.div`
 
         span {
             color: ${props => props.theme.primaryColor};
-            font-size: 12px;
+            font-size: 14px;
             font-weight: 600;
         }
 
         p {
-            font-size: 12px;
+            font-size: 14px;
             font-weight: 600;
             color: #3A393A;
-            line-height: 20px;
+            line-height: 23px;
             margin-bottom: 40px;
         }
 

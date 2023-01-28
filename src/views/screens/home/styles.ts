@@ -17,7 +17,7 @@ export const Hero = styled.div`
     .text-wrapper {
         flex: 1;
         margin-bottom: 40px;
-        max-width: 520px;
+        max-width: 640px;
         h6 {
             color: ${props => props.theme.secondaryColor};
             letter-spacing: 2px;
@@ -27,23 +27,23 @@ export const Hero = styled.div`
         }
         h2 {
             color: ${props => props.theme.primaryColor};
-            font-size: 35px;
+            font-size: 39px;
             line-height: 45px;
             font-weight: 700;
             margin-bottom: 40px;
 
             @media screen and (min-width: 880px) {
-                font-size: 40px;
+                font-size: 44px;
                 line-height: 50px;
             }
         }
         span {
             display: block;
             color: #3C3B3B;
-            font-size: 15px;
+            font-size: 20px;
             font-weight: 400;
             margin-bottom: 40px;
-            line-height: 21px;
+            line-height: 30px;
         }
 
         a {
@@ -54,8 +54,8 @@ export const Hero = styled.div`
             color: #fff;
             font-size: 13px;
             font-weight: 600;
-            height: 40px;
-            width: 150px;
+            height: 50px;
+            width: 200px;
             border-radius: 4px;
         }
     }
@@ -64,7 +64,33 @@ export const Hero = styled.div`
         display: none;
     }
 
-    @media screen and (min-width: 880px) {
+    @media screen and (min-width: 1024px) {
+        padding: 40px 8% 0px 8%;
+        position: relative;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        .text-wrapper {
+            margin: 40px 0px 80px 0px;
+            align-self: center;
+        }
+        .img-sec {
+            display: flex;
+            align-items: flex-end;
+            position: relative;
+            max-height: 100%;
+            height: 480px;
+
+            img {
+                max-height: 100%;
+                max-width: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+
+    @media screen and (min-width: 1240px) {
         padding: 40px 8% 0px 8%;
         /* height: 400px; */
         position: relative;
@@ -74,13 +100,14 @@ export const Hero = styled.div`
 
         .text-wrapper {
             margin: 40px 0px 80px 0px;
+            align-self: center;
         }
         .img-sec {
             display: flex;
             align-items: flex-end;
             position: relative;
             max-height: 100%;
-            height: 400px;
+            height: 600px;
 
             img {
                 max-height: 100%;
@@ -94,7 +121,7 @@ export const SectionOne = styled.div`
     padding: 100px 8%;
     background-color: #fff;
     h2 {
-        font-size: 20px;
+        font-size: 25px;
         font-weight: 600;
         margin-bottom: 40px;
         line-height: 30px;
@@ -111,9 +138,9 @@ export const SectionOne = styled.div`
 
         span {
             display: none;
-            max-width: 500px;
-            line-height: 20px;
-            font-size: 13px;
+            max-width: 640px;
+            line-height: 26px;
+            font-size: 18px;
             font-weight: 400;
             color: #1A1818;
 
@@ -125,9 +152,6 @@ export const SectionOne = styled.div`
         .slide-control-wrapper {
             display: flex;
             gap: 30px;
-
-        
-
             div {
                 display: flex;
                 justify-content: center;
@@ -161,7 +185,7 @@ export const FeatureWrapper = styled.div`
 `;
 export const FeatureCard = styled.div`
     width: 100%;
-    max-width: 260px;
+    max-width: 320px;
     padding: 35px 35px;
     background-color: ${props => props.theme.fadedPrimaryColor};
     .head-row {
@@ -171,16 +195,16 @@ export const FeatureCard = styled.div`
     }
     h3 {
         color: ${props => props.theme.primaryColor};
-        font-size: 16px;
+        font-size: 20px;
         font-weight: 600;
         margin-bottom: 20px;
-        line-height: 20px;
+        line-height: 23px;
     }
 
     p {
-        font-size: 12px;
+        font-size: 16px;
         color: #141414;
-        line-height: 18px;
+        line-height: 25px;
     }
 `;
 
@@ -235,7 +259,7 @@ export const SectionTwo = styled.div`
 
         b {
             display: block;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 600;
             color: ${props => props.theme.cyanColor};
             margin-bottom: 10px;
@@ -243,26 +267,26 @@ export const SectionTwo = styled.div`
             text-align: center;
         }
         h2 {
-            font-size: 50px;
+            font-size: 52px;
             font-weight: 600;
             color: ${props => props.theme.primaryColor};
             margin-bottom: 10px;
             text-align: center;
         }
         h3 {
-            font-size: 17px;
+            font-size: 18px;
             font-weight: 600;
             color: ${props => props.theme.cyanColor};
-            margin-bottom: 10px;
+            margin-bottom: 14px;
             line-height: 20px;
             text-align: center;
         }
 
         p {
             color: #1A1818;
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 21px;
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 26px;
             text-align: center;
         }
     }
@@ -510,27 +534,27 @@ export const SectionFive = styled.div`
         max-width: 480px;
         h2 {
             color: ${props => props.theme.primaryColor};
-            font-size: 27px;
+            font-size: 30px;
             line-height: 30px;
             margin-bottom: 30px;
         }
         p {
             color: #1A1818;
-            font-size: 12px;
+            font-size: 17px;
             line-height: 20px;
             margin-bottom: 30px;
-            font-weight: 400;
+            font-weight: 300;
         }
         a {
             display: flex;
             justify-content: center;
             align-items: center;
             color: #fff;
-            font-size: 12px;
+            font-size: 14px;
             font-weight: 600;
             width: 140px;
-            height: 36px;
-            border-radius: 18px;
+            height: 50px;
+            border-radius: 25px;
             background-color: ${props => props.theme.secondaryColor};
         }
     }
