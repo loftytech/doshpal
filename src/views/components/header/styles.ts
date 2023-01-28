@@ -55,15 +55,16 @@ export const NavigationWrapper = styled.nav<{navigationState: boolean}>`
             padding: 0px 20px;
             a {
                 display: block;
-                padding: 15px 20px;
+                padding: 18px 20px;
                 color: #1C1D1F;
                 white-space: nowrap;
-                font-size: 14px;
+                font-size: 16px;
                 font-weight: 400;
                 font-family: 'Lato', sans-serif;
             }
             
             :last-child {
+                margin-top: 10px;
                     a {
                         background-color: ${props => props.theme.secondaryColor};
                         padding: 13px 30px;
