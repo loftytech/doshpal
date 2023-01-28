@@ -467,14 +467,15 @@ export const SectionThree = styled.div`
                 align-items: center;
                 height: 50px;
                 width: 180px;
-                background-color: ${props => props.theme.secondaryColor};
-                color: #fff;
                 border-radius: 3px;
-
-                :last-child {
-                    color: ${props => props.theme.primaryColor};
-                    background-color: #D9D9D9;
-                }
+                color: ${props => props.theme.primaryColor};
+                background-color: #D9D9D9;
+                cursor: pointer;
+            }
+            
+            a.selected {
+                color: #fff;
+                background-color: ${props => props.theme.secondaryColor};
             }
         }
     }

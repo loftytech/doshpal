@@ -111,11 +111,11 @@ const LoanCalculator = () => {
 
                 <h4>Loan Type</h4>
                 <div className="load-action-row">
-                    <a onClick={(e) => {
+                    <a className={isPersonal ? 'selected' :''} onClick={(e) => {
                         e.preventDefault();
                         setIsPersonal(true);
                     }} >Personal Loan</a>
-                    <a onClick={(e) => {
+                    <a className={!isPersonal ? 'selected' :''} onClick={(e) => {
                         e.preventDefault();
                         setIsPersonal(false);
                     }} >Business Loan</a>
