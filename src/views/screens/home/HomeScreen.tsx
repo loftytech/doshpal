@@ -1,8 +1,151 @@
+import { useEffect, useRef, useState } from 'react';
 import { BsArrowRight, BsChevronLeft, BsChevronRight } from 'react-icons/bs'
 import { Link } from 'react-router-dom';
 import Footer from '../../components/footer/Footer';
 import Header from '../../components/header/Header';
-import { Content, TopSection, Hero, Wrapper, SectionOne, FeatureWrapper, FeatureCard, SectionTwo, SectionThree, SectionFour, SectionFive, SectionSix } from "./styles";
+import { Content, TopSection, Hero, Wrapper, SectionOne, FeatureWrapper, FeatureCard, SectionTwo, SectionThree, SectionFour, SectionFive, SectionSix, RangeSlider } from "./styles";
+
+
+
+const Range = ({onMove = (value: any) => {}, value=0}) => {
+    const firstSliderRef = useRef<HTMLDivElement>(null);
+    const [slidePercentage, setSlidePercentage] = useState<string>("0")
+    let onPressSlider = false;
+    const setOnPressSlider = (value: boolean) => {
+        onPressSlider = value
+    }
+    const onMouseUpfirstSlider = (e: any) => {
+        const xOffset = firstSliderRef.current!.offsetLeft;
+        const percentage = Math.floor(((e.clientX - xOffset)/firstSliderRef.current!.clientWidth)*100);
+        setSlidePercentage(percentage.toString())
+        onMove(percentage)
+    }
+
+    return <RangeSlider percentage={slidePercentage} ref={firstSliderRef} onMouseMove={onMouseUpfirstSlider}>
+        <span className="drag-circle"></span>
+        <span className="slide-value">{value}</span>
+    </RangeSlider>
+}
+
+const LoanCalculator = () => {
+    const [isPersonal, setIsPersonal] = useState<boolean>(true);
+    const [loanAmount, setLoanAmount] = useState<number>(0);
+    const [interestRate, setInterestRate] = useState<number>(0);
+    const [monthlyPayment, setMonthlyPayment] = useState<number>(0);
+    const [repaymentMonths, setRepaymentMonths] = useState<number>(1);
+    const [percentageLoanSlider, setPercentageLoanSlider] = useState<number>(0);
+    const [percentageMonthSlider, setPercentageMonthSlider] = useState<number>(0);
+
+    const getAmount = (percentage: number) : number => {
+        return ((1900000 * (percentage/100))+100000)
+    }
+
+    const getInterestRate = (percentage: number) => {
+        const amount = Math.floor(getAmount(percentage));
+        setLoanAmount(amount)
+        let rate = 0;
+
+        if (isPersonal) {
+            if (amount < 151000) {
+                rate = 6.1;
+            } else if (amount < 200000) {
+                rate = 5.6;
+            } else if (amount < 501000) {
+                rate = 5.1;
+            } else {
+                rate = 4.5;
+            }
+            setInterestRate(rate)
+        } else {
+            rate = 6;
+            setInterestRate(rate)
+        }
+
+        return rate;
+    }
+
+    const getPaymentDuration = (percentage: number) => {
+        const num_months = Math.floor(((23 * (percentage/100))+1))
+
+        console.log("months: ", num_months);
+        
+        setRepaymentMonths(num_months)
+        return num_months
+    }
+
+    const getRepaymentAmount = (percentage: number) => {
+        const amount = getAmount(percentage)
+        const rate = getInterestRate(percentage)
+        const repayment = (amount * (rate/100)) + amount
+
+        return repayment
+    }
+    const getMonthlyRepayment = (percentage: number, monthPercentage: number) => {
+        const repaymentAmount = Math.floor(getRepaymentAmount(percentage) / getPaymentDuration(monthPercentage))
+        setMonthlyPayment(repaymentAmount)
+        return repaymentAmount
+    }
+
+    useEffect(() => {
+        getMonthlyRepayment(percentageLoanSlider, percentageMonthSlider)
+    }, [isPersonal, percentageLoanSlider, percentageMonthSlider])
+    return (
+        <SectionThree>
+            <div className="calc-sec">
+                <h2>Your Loan</h2>
+                <h3>Calculator</h3>
+                <p>Calculate your potential loanable amount below. To calculate your loanable amount you need to slide across the bar. <br /> <br /> FOR COLLATERAL LOAN you must tap on “Collateral loan” on the loan type</p>
+
+                <h4>Loan Amount</h4>
+                <Range value={loanAmount} onMove={(value) => { setPercentageLoanSlider(value); }} />
+                <div className="loan-calc-row">
+                    <span>NGN 100,000</span>
+                    <span>NGN 2,000,000</span>
+                </div>
+
+                <h4>Loan Period <br /> (Months)</h4>
+                <Range value={repaymentMonths} onMove={(value) => { setPercentageMonthSlider(value); }} />
+                <div className="loan-calc-row">
+                    <span>1 Month</span>
+                    <span>24 Months</span>
+                </div>
+
+                <h4>Loan Type</h4>
+                <div className="load-action-row">
+                    <a className={isPersonal ? 'selected' :''} onClick={(e) => {
+                        e.preventDefault();
+                        setIsPersonal(true);
+                    }} >Personal Loan</a>
+                    <a className={!isPersonal ? 'selected' :''} onClick={(e) => {
+                        e.preventDefault();
+                        setIsPersonal(false);
+                    }} >Business Loan</a>
+                </div>
+            </div>
+            <div className="info-sec">
+                <div className="cal-stmt">
+                    <img src="/img/coin-icon.png" alt="coin icon" />
+                    <p>The figure you see below are estimate based on the information you provided which might be subject to change.</p>
+                </div>
+                <div className="loan-cal-result">
+                    <div className="loadable">
+                        <b>LOANABLE <br /> AMOUNT</b>
+                        <h2>{loanAmount}</h2>
+                        <div className="row">
+                            <span>{interestRate}%</span>
+                            <span>Interest rate</span>
+                        </div>
+                    </div>
+                    <div className="repayment">
+                        <b>MONTHLY REPAYMENT</b>
+                        <h2>{monthlyPayment}</h2>
+                    </div>
+                </div>
+            </div>
+        </SectionThree>
+    );
+}
+
 
 const HomeScreen = () => {
     return (
@@ -92,57 +235,7 @@ const HomeScreen = () => {
                     </div>
                 </SectionTwo>
 
-                <SectionThree>
-                    <div className="calc-sec">
-                        <h2>Your Loan</h2>
-                        <h3>Calculator</h3>
-                        <p>Calculate your potential loanable amount below. To calculate your loanable amount you need to slide across the bar. <br /> <br /> FOR COLLATERAL LOAN you must tap on “Collateral loan” on the loan type</p>
-
-                        <h4>Loan Amount</h4>
-                        <div className="slider-box">
-                            <span className="drag-circle"></span>
-                        </div>
-                        <div className="loan-calc-row">
-                            <span>NGN 50,000</span>
-                            <span>NGN 2,000,000</span>
-                        </div>
-
-                        <h4>Loan Period <br /> (Months)</h4>
-                        <div className="slider-box">
-                            <span className="drag-circle"></span>
-                        </div>
-                        <div className="loan-calc-row">
-                            <span>1 Month</span>
-                            <span>24 Months</span>
-                        </div>
-
-                        <h4>Loan Type</h4>
-                        <div className="load-action-row">
-                            <Link to="/loan">Personal Loan</Link>
-                            <Link to="/business-loan">Business Loan</Link>
-                        </div>
-                    </div>
-                    <div className="info-sec">
-                        <div className="cal-stmt">
-                            <img src="/img/coin-icon.png" alt="coin icon" />
-                            <p>The figure you see below are estimate based on the information you provided which might be subject to change.</p>
-                        </div>
-                        <div className="loan-cal-result">
-                            <div className="loadable">
-                                <b>LOANABLE <br /> AMOUNT</b>
-                                <h2>1.45m</h2>
-                                <div className="row">
-                                    <span>14%</span>
-                                    <span>Interest rate</span>
-                                </div>
-                            </div>
-                            <div className="repayment">
-                                <b>MONTHLY REPAYMENT</b>
-                                <h2>150k</h2>
-                            </div>
-                        </div>
-                    </div>
-                </SectionThree>
+                <LoanCalculator />
                 <SectionFour>
                     <img src="/img/section-img.png" alt="" />
                 </SectionFour>

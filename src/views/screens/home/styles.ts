@@ -319,6 +319,51 @@ export const SectionTwo = styled.div`
     }
 `;
 
+
+export const RangeSlider = styled.div<{percentage: string}>`
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 3px;
+    background-color: #D9D9D9;
+    margin-bottom: 10px;
+    position: relative;
+
+    ::before {
+        content: "";
+        position: absolute;
+        left: 0px;
+        width: ${props => props.percentage}%;
+        height: 100%;
+        background-color: ${props => props.theme.secondaryColor};
+    }
+
+    .drag-circle {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: ${props => props.theme.secondaryColor};
+        position: absolute;
+        left: calc(${props => props.percentage}% - 5px);
+        cursor: pointer;
+    }
+    .slide-value {
+        display: ${props => parseInt(props.percentage) > 0 ? "flex" : "none"};
+        justify-content: center;
+        align-items: center;
+        font-size: 13px;
+        font-weight: 600;
+        color: #fff;
+        width: 60px;
+        height: 25px;
+        border-radius: 12.5px;
+        margin-bottom: 40px;
+        background-color: ${props => props.theme.secondaryColor};
+        position: absolute;
+        left: calc(${props => props.percentage}% - 30px);
+    }
+`;
+
 export const SectionThree = styled.div`
     display: flex;
     flex-direction: column;
@@ -329,73 +374,29 @@ export const SectionThree = styled.div`
         margin-bottom: 40px;
         h2 {
             color: #fff;
-            font-size: 23px;
-            margin-bottom: 8px;
+            font-size: 30px;
+            margin-bottom: 10px;
             font-weight: 600;
         }
         h3 {
             color: ${props => props.theme.cyanColor};
-            font-size: 23px;
+            font-size: 30px;
             margin-bottom: 30px;
             font-weight: 600;
         }
         p {
             color: #fff;
-            font-size: 12px;
+            font-size: 16px;
             font-weight: 400;
-            margin-bottom: 30px;
-            line-height: 18px;
+            margin-bottom: 35px;
+            line-height: 25px;
         }
         h4 {
             color: #fff;
             font-size: 15px;
             font-weight: 600;
             margin-bottom: 16px;
-            line-height: 20px;
-        }
-
-        .slider-box {
-            display: flex;
-            align-items: center;
-            width: 100%;
-            height: 3px;
-            background-color: #D9D9D9;
-            margin-bottom: 10px;
-            position: relative;
-
-            ::before {
-                content: "";
-                position: absolute;
-                left: 0px;
-                width: 60%;
-                height: 100%;
-                background-color: ${props => props.theme.secondaryColor};
-            }
-
-            .drag-circle {
-                width: 10px;
-                height: 10px;
-                border-radius: 50%;
-                background-color: ${props => props.theme.secondaryColor};
-                position: absolute;
-                left: calc(60% - 5px);
-            }
-            ::after {
-                content: "1.4M";
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: 13px;
-                font-weight: 600;
-                color: #fff;
-                width: 60px;
-                height: 25px;
-                border-radius: 12.5px;
-                margin-bottom: 40px;
-                background-color: ${props => props.theme.secondaryColor};
-                position: absolute;
-                left: calc(60% - 30px);
-            }
+            line-height: 25px;
         }
 
         .loan-calc-row {
@@ -419,14 +420,15 @@ export const SectionThree = styled.div`
                 align-items: center;
                 height: 50px;
                 width: 180px;
-                background-color: ${props => props.theme.secondaryColor};
-                color: #fff;
                 border-radius: 3px;
-
-                :last-child {
-                    color: ${props => props.theme.primaryColor};
-                    background-color: #D9D9D9;
-                }
+                color: ${props => props.theme.primaryColor};
+                background-color: #D9D9D9;
+                cursor: pointer;
+            }
+            
+            a.selected {
+                color: #fff;
+                background-color: ${props => props.theme.secondaryColor};
             }
         }
     }
@@ -442,14 +444,14 @@ export const SectionThree = styled.div`
             padding: 20px 20px;
             margin-bottom: 30px;
             img {
-                width: 40px;
+                width: 50px;
             }
             p {
                 color: #FBF9FE;
-                font-size: 12px;
-                font-weight: 400;
+                font-size: 15px;
+                font-weight: 300;
                 margin-left: 20px;
-                line-height: 16px;
+                line-height: 18px;
             }
         }
 
@@ -463,16 +465,17 @@ export const SectionThree = styled.div`
 
             .loadable {
                 b {
+                    display: block;
                     color: #fff;
-                    font-size: 10px;
+                    font-size: 12px;
                     font-weight: 600;
-                    margin-bottom: 4px;
+                    margin-bottom: 10px;
                 }
                 h2 {
                     color: ${props => props.theme.cyanColor};
                     font-size: 50px;
                     font-weight: 600;
-                    margin-bottom: 8px;
+                    margin-bottom: 10px;
                 }
                 .row {
                     display: flex;
@@ -497,10 +500,11 @@ export const SectionThree = styled.div`
                 border-top: 0.5px solid #D9D9D9;
                 padding-top: 30px;
                 b {
+                    display: block;
                     color: #fff;
-                    font-size: 10px;
+                    font-size: 12px;
                     font-weight: 600;
-                    margin-bottom: 4px;
+                    margin-bottom: 10px;
                 }
                 h2  {
                     color: ${props => props.theme.cyanColor};

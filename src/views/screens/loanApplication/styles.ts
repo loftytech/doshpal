@@ -17,26 +17,26 @@ export const Hero = styled.div`
     .text-wrapper {
         flex: 1;
         margin-bottom: 40px;
-        max-width: 520px;
+        max-width: 640px;
         h2 {
             color: ${props => props.theme.primaryColor};
-            font-size: 30px;
+            font-size: 35px;
             line-height: 45px;
             font-weight: 700;
             margin-bottom: 35px;
 
             @media screen and (min-width: 880px) {
-                font-size: 30px;
+                font-size: 35px;
                 line-height: 45px;
             }
         }
         span {
             display: block;
             color: #3C3B3B;
-            font-size: 15px;
-            font-weight: 400;
+            font-size: 20px;
+            font-weight: 300;
             margin-bottom: 40px;
-            line-height: 21px;
+            line-height: 25px;
         }
     }
 
@@ -84,16 +84,16 @@ export const Hero = styled.div`
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                height: 40px;
-                width: 140px;
+                height: 50px;
+                width: 160px;
                 background-color: #D9D9D9;
-                font-size: 13px;
+                font-size: 15px;
                 cursor: pointer;
                 color: ${props => props.theme.primaryColor};
 
                 :first-child {
                     margin-right: 20px;
-                    width: 160px;
+                    width: 180px;
                 }
             }
             span.selected {
@@ -110,7 +110,7 @@ export const Hero = styled.div`
         }
         
         input {
-            height: 40px;
+            height: 45px;
             background-color: #F4F4F4;
             border-radius: 8px;
             margin-bottom: 20px;
@@ -123,13 +123,14 @@ export const Hero = styled.div`
             display: flex;
             align-items: center;
             margin-bottom: 20px;
+            cursor: pointer;
 
             span {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                height: 16px;
-                width: 16px;
+                height: 18px;
+                width: 18px;
                 border-radius: 3px;
                 background-color: #D9D9D9;
                 margin-right: 20px;
@@ -137,7 +138,7 @@ export const Hero = styled.div`
             }
 
             b {
-                font-size: 13px;
+                font-size: 16px;
                 font-weight: 400;
                 color: ${props => props.theme.primaryColor};
             }
@@ -149,8 +150,8 @@ export const Hero = styled.div`
             align-items: center;
             font-size: 13px;
             font-weight: 600;
-            height: 40px;
-            width: 110px;
+            height: 50px;
+            width: 160px;
             color: #fff;
             background-color: ${props => props.theme.secondaryColor};
             border: none;
@@ -161,210 +162,6 @@ export const Hero = styled.div`
 
         @media screen and (min-width: 880px) {
             margin-bottom: 60px;
-        }
-    }
-`;
-export const SectionOne = styled.div`
-    padding: 100px 8%;
-    background-color: #fff;
-    h2 {
-        font-size: 20px;
-        font-weight: 600;
-        margin-bottom: 40px;
-        line-height: 30px;
-        color: ${props => props.theme.primaryColor};
-        max-width: 500px;
-    }
-
-    .row {
-        display: flex;
-        justify-content: flex-end;
-        @media screen and (min-width: 880px) {
-            justify-content: space-between;
-        }
-
-        span {
-            display: none;
-            max-width: 500px;
-            line-height: 20px;
-            font-size: 13px;
-            font-weight: 400;
-            color: #1A1818;
-
-            @media screen and (min-width: 880px) {
-                display: block;
-            }
-        }
-
-        .slide-control-wrapper {
-            display: flex;
-            gap: 30px;
-
-        
-
-            div {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 35px;
-                height: 35px;
-                font-size: 13px;
-                border-radius: 4px;
-                cursor: pointer;
-                background-color: ${props => props.theme.lightPrimaryColor};
-                color: rgba(48, 48, 48, 0.51);
-
-                svg {
-                    stroke-width: 1px;
-                }
-            }
-        }
-
-    }
-`;
-export const FeatureWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    margin: 80px 0px 30px 0px;
-    @media screen and (min-width: 880px) {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-`;
-export const FeatureCard = styled.div`
-    width: 100%;
-    max-width: 260px;
-    padding: 35px 35px;
-    background-color: ${props => props.theme.fadedPrimaryColor};
-    .head-row {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 20px;
-    }
-    h3 {
-        color: ${props => props.theme.primaryColor};
-        font-size: 16px;
-        font-weight: 600;
-        margin-bottom: 20px;
-        line-height: 20px;
-    }
-
-    p {
-        font-size: 12px;
-        color: #141414;
-        line-height: 18px;
-    }
-`;
-
-export const SectionTwo = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 100px 8%;
-    gap: 40px;
-    background-color: ${props => props.theme.fadedPrimaryColor};
-
-    .text-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        /* flex: 1; */
-        h3 {
-            color: #424142;
-            font-size: 30px;
-            font-weight: 600;
-            line-height: 24px;
-            margin-bottom: 4px;
-            text-align: center;
-        }
-        b {
-            font-size: 30px;
-            font-weight: 600;
-            color: ${props => props.theme.primaryColor};
-            text-align: center;
-        }
-        a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: ${props => props.theme.primaryColor};
-            padding: 10px 20px;
-            border-radius: 4px;
-            margin-top: 20px;
-            color: #fff;
-            font-size: 14px;
-            font-weight: 500;
-            width: 150px;
-        }
-    }
-
-    .stats-box {
-        flex: 1;
-        background-color: #fff;
-        padding: 40px 30px;
-        border-radius: 6px;
-        max-width: 320px;
-
-        b {
-            display: block;
-            font-size: 11px;
-            font-weight: 600;
-            color: ${props => props.theme.cyanColor};
-            margin-bottom: 10px;
-
-            text-align: center;
-        }
-        h2 {
-            font-size: 50px;
-            font-weight: 600;
-            color: ${props => props.theme.primaryColor};
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        h3 {
-            font-size: 17px;
-            font-weight: 600;
-            color: ${props => props.theme.cyanColor};
-            margin-bottom: 10px;
-            line-height: 20px;
-            text-align: center;
-        }
-
-        p {
-            color: #1A1818;
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 21px;
-            text-align: center;
-        }
-    }
-
-
-    @media screen and (min-width: 1080px) {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        gap: 6%;
-
-        .text-content {
-            align-items: flex-start;
-        }
-
-        .stats-box {
-            b {
-                text-align: start;
-            }
-            h2 {
-                text-align: start;
-            }
-            h3 {
-                text-align: start;
-            }
-            p {
-                text-align: start;
-            }
         }
     }
 `;
@@ -411,6 +208,7 @@ export const RangeSlider = styled.div<{percentage: string}>`
         left: calc(${props => props.percentage}% - 30px);
     }
 `;
+
 export const SectionThree = styled.div`
     display: flex;
     flex-direction: column;
@@ -421,29 +219,29 @@ export const SectionThree = styled.div`
         margin-bottom: 40px;
         h2 {
             color: #fff;
-            font-size: 23px;
-            margin-bottom: 8px;
+            font-size: 30px;
+            margin-bottom: 10px;
             font-weight: 600;
         }
         h3 {
             color: ${props => props.theme.cyanColor};
-            font-size: 23px;
+            font-size: 30px;
             margin-bottom: 30px;
             font-weight: 600;
         }
         p {
             color: #fff;
-            font-size: 12px;
+            font-size: 16px;
             font-weight: 400;
-            margin-bottom: 30px;
-            line-height: 18px;
+            margin-bottom: 35px;
+            line-height: 25px;
         }
         h4 {
             color: #fff;
             font-size: 15px;
             font-weight: 600;
             margin-bottom: 16px;
-            line-height: 20px;
+            line-height: 25px;
         }
 
         .loan-calc-row {
@@ -491,14 +289,14 @@ export const SectionThree = styled.div`
             padding: 20px 20px;
             margin-bottom: 30px;
             img {
-                width: 40px;
+                width: 50px;
             }
             p {
                 color: #FBF9FE;
-                font-size: 12px;
-                font-weight: 400;
+                font-size: 15px;
+                font-weight: 300;
                 margin-left: 20px;
-                line-height: 16px;
+                line-height: 18px;
             }
         }
 
@@ -512,16 +310,17 @@ export const SectionThree = styled.div`
 
             .loadable {
                 b {
+                    display: block;
                     color: #fff;
-                    font-size: 10px;
+                    font-size: 12px;
                     font-weight: 600;
-                    margin-bottom: 4px;
+                    margin-bottom: 10px;
                 }
                 h2 {
                     color: ${props => props.theme.cyanColor};
                     font-size: 50px;
                     font-weight: 600;
-                    margin-bottom: 8px;
+                    margin-bottom: 10px;
                 }
                 .row {
                     display: flex;
@@ -546,10 +345,11 @@ export const SectionThree = styled.div`
                 border-top: 0.5px solid #D9D9D9;
                 padding-top: 30px;
                 b {
+                    display: block;
                     color: #fff;
-                    font-size: 10px;
+                    font-size: 12px;
                     font-weight: 600;
-                    margin-bottom: 4px;
+                    margin-bottom: 10px;
                 }
                 h2  {
                     color: ${props => props.theme.cyanColor};
@@ -570,62 +370,4 @@ export const SectionThree = styled.div`
             margin-bottom: 40px;
         }
     }
-`;
-
-export const SectionFour = styled.div`
-`;
-export const SectionFive = styled.div`
-    display: flex;
-    padding: 100px 8%;
-    background-color: ${props => props.theme.fadedPrimaryColor};
-
-    .text-content {
-        max-width: 480px;
-        h2 {
-            color: ${props => props.theme.primaryColor};
-            font-size: 27px;
-            line-height: 30px;
-            margin-bottom: 30px;
-        }
-        p {
-            color: #1A1818;
-            font-size: 12px;
-            line-height: 20px;
-            margin-bottom: 30px;
-            font-weight: 400;
-        }
-        a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            font-size: 12px;
-            font-weight: 600;
-            width: 140px;
-            height: 36px;
-            border-radius: 18px;
-            background-color: ${props => props.theme.secondaryColor};
-        }
-    }
-
-    .img-wrapper {
-        display: none;
-        flex: 1;
-        align-items: flex-end;
-        justify-content: flex-end;
-        img {
-            width: 100px;
-            margin-right: 30px;
-        }
-    }
-
-    @media screen and (min-width: 880px) {
-        .img-wrapper {
-            display: flex;
-        }
-    }
-`;
-export const SectionSix = styled.div`
-    padding: 100px 8%;
-    background-color: #fff;
 `;

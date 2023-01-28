@@ -12,21 +12,22 @@ export const TopSection = styled.div`
 export const Hero = styled.div`
     display: flex;
     flex-direction: column-reverse;
+    align-items: center;
     padding: 40px 8%;
     gap: 40px;
 
     .text-wrapper {
         flex: 1;
         margin-bottom: 40px;
-        max-width: 520px;
+        max-width: 640px;
         h2 {
             color: ${props => props.theme.primaryColor};
-            font-size: 33px;
-            line-height: 45px;
+            font-size: 40px;
+            line-height: 50px;
             font-weight: 700;
 
             @media screen and (min-width: 880px) {
-                font-size: 40px;
+                font-size: 50px;
                 line-height: 50px;
             }
         }
@@ -38,30 +39,30 @@ export const Hero = styled.div`
             margin-bottom: 40px;
 
             @media screen and (min-width: 880px) {
-                font-size: 40px;
+                font-size: 50px;
                 line-height: 50px;
             }
         }
         span {
             display: block;
             color: #3C3B3B;
-            font-size: 15px;
+            font-size: 20px;
             font-weight: 400;
             margin-bottom: 40px;
-            line-height: 21px;
+            line-height: 30px;
         }
     }
 
     .img-sec {
         display: flex;
         justify-content: center;
-        max-height: 100%;
+        max-height: 300px;
         /* width: 480px; */
         max-width: 100%;
         object-fit: contain;
     }
 
-    @media screen and (min-width: 880px) {
+    @media screen and (min-width: 1080px) {
         padding: 40px 8% 0px 8%;
         /* height: 400px; */
         position: relative;
@@ -91,28 +92,25 @@ export const Hero = styled.div`
 export const SectionOne = styled.div`
     display: flex;
     flex-direction: column-reverse;
+    align-items: center;
     padding: 100px 8%;
     gap: 40px;
     background: #fff;
     box-shadow: 5.8408px 5.8408px 3.3376px rgba(0, 0, 0, 0.04);
-    @media screen and (min-width: 880px) {
-        flex-direction: row-reverse;
-        justify-content: space-between;
-    }
 
     .text-content {
         max-width: 480px;
         h2 {
             color: ${props => props.theme.primaryColor};
-            font-size: 18px;
+            font-size: 22px;
             line-height: 30px;
             margin-bottom: 30px;
             letter-spacing: 10px;
         }
         p {
             color: #1A1818;
-            font-size: 12px;
-            line-height: 20px;
+            font-size: 16px;
+            line-height: 24px;
             margin-bottom: 30px;
             font-weight: 400;
         }
@@ -133,6 +131,22 @@ export const SectionOne = styled.div`
     .img-wrapper {
         img {
             max-height: 200px;
+            margin-bottom: 40px;
+        }
+    }
+
+
+    @media screen and (min-width: 880px) {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        .text-content {
+            max-width: 480px;
+        }
+
+        .img-wrapper {
+            img {
+                margin-bottom: 0px;
+            }
         }
     }
 `;
@@ -140,6 +154,7 @@ export const SectionOne = styled.div`
 export const SectionTwo = styled.div`
     display: flex;
     flex-direction: column-reverse;
+    align-items: center;
     padding: 100px 8%;
     gap: 60px;
     background: rgba(113, 213, 228, 0.4);
@@ -150,20 +165,20 @@ export const SectionTwo = styled.div`
     }
 
     .text-content {
-        max-width: 480px;
+        max-width: 640px;
         h2 {
             color: ${props => props.theme.primaryColor};
-            font-size: 27px;
-            line-height: 32px;
+            font-size: 36px;
+            line-height: 40px;
             margin-bottom: 30px;
         }
         ul {
             li {
                 list-style: disc;
                 color: #1A1818;
-                font-size: 12px;
-                line-height: 20px;
-                margin-bottom: 4px;
+                font-size: 18px;
+                line-height: 22px;
+                margin-bottom: 10px;
                 font-weight: 400;
                 margin-left: 20px;
             }
@@ -174,11 +189,11 @@ export const SectionTwo = styled.div`
             justify-content: center;
             align-items: center;
             color: #fff;
-            font-size: 12px;
+            font-size: 15px;
             font-weight: 600;
-            width: 140px;
-            height: 36px;
-            border-radius: 8px;
+            width: 180px;
+            height: 50px;
+            border-radius: 10px;
             background-color: ${props => props.theme.secondaryColor};
         }
     }

@@ -18,26 +18,26 @@ export const Hero = styled.div`
     .text-wrapper {
         flex: 1;
         margin-bottom: 40px;
-        max-width: 520px;
+        max-width: 640px;
         h3 {
             color: ${props => props.theme.primaryColor};
-            font-size: 33px;
-            line-height: 45px;
+            font-size: 40px;
+            line-height: 50px;
             font-weight: 700;
             margin-bottom: 40px;
 
             @media screen and (min-width: 880px) {
-                font-size: 40px;
-                line-height: 50px;
+                font-size: 50px;
+                line-height: 54px;
             }
         }
         span {
             display: block;
             color: #3C3B3B;
-            font-size: 15px;
-            font-weight: 400;
+            font-size: 20px;
+            font-weight: 300;
             margin-bottom: 40px;
-            line-height: 21px;
+            line-height: 28px;
         }
     }
 
@@ -45,7 +45,7 @@ export const Hero = styled.div`
         display: block;
     }
 
-    @media screen and (min-width: 880px) {
+    @media screen and (min-width: 1080px) {
         padding: 40px 8% 0px 8%;
         /* height: 400px; */
         position: relative;
@@ -65,7 +65,7 @@ export const Hero = styled.div`
 
             img {
                 max-height: 100%;
-                width: 480px;
+                max-width: 640px;
                 object-fit: contain;
             }
         }
