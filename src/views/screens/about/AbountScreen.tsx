@@ -1,9 +1,14 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../../components/footer/Footer';
 import Header from '../../components/header/Header';
 import { Content, TopSection, Hero, Wrapper, SectionTwo, SectionThree, SectionOne } from "./styles";
 
 const AbountScreen = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+    
     return (
         <Wrapper>
             <Content>
@@ -42,7 +47,7 @@ const AbountScreen = () => {
                             <li>Quick credit with our numerous loan products.</li>
                         </ul>
                         
-                        <Link to="/loan">Apply for loan</Link>
+                        <Link to="/loan-apply">Apply for loan</Link>
                     </div>
                     <div className="img-wrapper">
                         <img src="/img/stand-with-us-img.png" alt="" />

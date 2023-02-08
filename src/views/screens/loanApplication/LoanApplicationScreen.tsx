@@ -181,6 +181,10 @@ const LoanApplicationScreen = () => {
 
     const navigate = useNavigate()
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
+
 
     const businessSectorList = [
         "Oil and Gas",
@@ -243,7 +247,7 @@ const LoanApplicationScreen = () => {
             if (res.status == 1) {
                 setIsSendingLoanData(false)
                 Message.success("Loan application sent successfuly");
-                // navigate("/")
+                navigate("/")
             } else {
                 setIsSendingLoanData(false)
                 Message.error(res.message)

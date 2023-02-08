@@ -9,12 +9,13 @@ import { Content, TopSection, Hero, Wrapper, SectionOne, FeatureWrapper, Feature
 
 const Range = ({onMove = (value: any) => {}, value=0}) => {
     const firstSliderRef = useRef<HTMLDivElement>(null);
+    const capSliderRef = useRef<HTMLDivElement>(null);
     const [slidePercentage, setSlidePercentage] = useState<string>("0")
 
     let dragValue: HTMLDivElement | null;
     
     const start = () => {
-        firstSliderRef!.current!.onpointerdown = () => {
+        capSliderRef!.current!.onpointerdown = () => {
             dragValue = firstSliderRef.current
             document.onmousemove = (e) => {
                 const xOffset = dragValue!.offsetLeft;
@@ -38,7 +39,7 @@ const Range = ({onMove = (value: any) => {}, value=0}) => {
 
 
     return <RangeSlider percentage={slidePercentage} ref={firstSliderRef}>
-        <span className="drag-circle"></span>
+        <span ref={capSliderRef} className="drag-circle"></span>
         <span className="slide-value">{value}</span>
     </RangeSlider>
 }
@@ -165,6 +166,11 @@ const LoanCalculator = () => {
 
 const HomeScreen = () => {
     const navigate = useNavigate()
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     return (
         <Wrapper>
             <Content>
@@ -208,7 +214,7 @@ const HomeScreen = () => {
 
                             <p>When you run into an emergency, it's possible not to have the funds to take care ...</p>
                         </FeatureCard>
-                        <FeatureCard>
+                        <FeatureCard onClick={() => navigate('/business-loan')}>
                             <div className="head-row">
                                 <img src="/svg/sme-load-icon.svg" alt="" />
                                 <BsArrowRight />

@@ -184,6 +184,7 @@ export const FeatureWrapper = styled.div`
     }
 `;
 export const FeatureCard = styled.div`
+    cursor: pointer;
     width: 100%;
     max-width: 320px;
     padding: 35px 35px;
