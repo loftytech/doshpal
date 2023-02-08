@@ -45,8 +45,6 @@ const Range = ({onMove = (value: any) => {}, value=0}) => {
         start()
     }, [])
 
-
-
     return <RangeSlider percentage={slidePercentage} ref={firstSliderRef}>
         <span ref={capSliderRef} className="drag-circle"></span>
         <span ref={sliderRef} className="slide-value">{value}</span>

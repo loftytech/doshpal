@@ -227,7 +227,7 @@ export const RangeSlider = styled.div<{percentage: string}>`
     display: flex;
     align-items: center;
     width: 100%;
-    height: 3px;
+    height: 4px;
     background-color: #D9D9D9;
     margin-bottom: 10px;
     position: relative;
@@ -242,16 +242,16 @@ export const RangeSlider = styled.div<{percentage: string}>`
     }
 
     .drag-circle {
-        width: 10px;
-        height: 10px;
+        width: 25px;
+        height: 25px;
         border-radius: 50%;
         background-color: ${props => props.theme.secondaryColor};
         position: absolute;
-        left: calc(${props => props.percentage}% - 5px);
+        left: calc(${props => props.percentage}% - 12.5px);
         cursor: pointer;
     }
     .slide-value {
-        display: ${props => parseInt(props.percentage) > 0 ? "flex" : "none"};
+        display: flex;
         justify-content: center;
         align-items: center;
         font-size: 13px;
@@ -260,7 +260,7 @@ export const RangeSlider = styled.div<{percentage: string}>`
         width: 60px;
         height: 25px;
         border-radius: 12.5px;
-        margin-bottom: 40px;
+        margin-bottom: 60px;
         background-color: ${props => props.theme.secondaryColor};
         position: absolute;
         left: calc(${props => props.percentage}% - 30px);

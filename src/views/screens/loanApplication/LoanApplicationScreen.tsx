@@ -11,26 +11,36 @@ import { Content, TopSection, Hero, Wrapper, SectionThree, RangeSlider, Vertical
 
 const Range = ({onMove = (value: any) => {}, value=0}) => {
     const firstSliderRef = useRef<HTMLDivElement>(null);
+    const capSliderRef = useRef<HTMLDivElement>(null);
+    const sliderRef = useRef<HTMLDivElement>(null);
     const [slidePercentage, setSlidePercentage] = useState<string>("0")
 
     let dragValue: HTMLDivElement | null;
     
     const start = () => {
-        firstSliderRef!.current!.onmousedown = () => {
+        capSliderRef!.current!.onpointerdown = () => {
             dragValue = firstSliderRef.current
-            document.onmousemove = (e) => {
-                const xOffset = dragValue!.offsetLeft;
-                const percentage = Math.floor(((e.clientX - xOffset)/firstSliderRef.current!.clientWidth)*100);
-                if (percentage >= 0 && percentage <= 100) {
-                    setSlidePercentage(percentage.toString())
-                    onMove(percentage)
+            document.onpointermove = (e) => {
+                if (dragValue != null) {
+                    const xOffset = dragValue!.offsetLeft;
+                    const percentage = Math.floor(((e.clientX - xOffset)/firstSliderRef.current!.clientWidth)*100);
+                    if (percentage >= 0 && percentage <= 100) {
+                        setSlidePercentage(percentage.toString())
+                        onMove(percentage)
+                    }
+
+                    const mouseOffsetY = Math.floor(Math.abs((capSliderRef!.current!.getBoundingClientRect().top + window.scrollY) - e.pageY))
+
+                    if (mouseOffsetY > 20) {
+                        dragValue = null
+                    }
+                    firstSliderRef!.current!.onpointerup = () => {
+                        dragValue = null
+                    }
                 }
             }
         }
 
-        firstSliderRef!.current!.onmouseup = () => {
-            dragValue = null
-        }
     }
 
     useEffect(() => {
@@ -40,8 +50,8 @@ const Range = ({onMove = (value: any) => {}, value=0}) => {
 
 
     return <RangeSlider percentage={slidePercentage} ref={firstSliderRef}>
-        <span className="drag-circle"></span>
-        <span className="slide-value">{value}</span>
+        <span ref={capSliderRef} className="drag-circle"></span>
+        <span ref={sliderRef} className="slide-value">{value}</span>
     </RangeSlider>
 }
 
