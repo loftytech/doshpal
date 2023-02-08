@@ -14,7 +14,7 @@ const Range = ({onMove = (value: any) => {}, value=0}) => {
     let dragValue: HTMLDivElement | null;
     
     const start = () => {
-        firstSliderRef!.current!.onmousedown = () => {
+        firstSliderRef!.current!.onpointerdown = () => {
             dragValue = firstSliderRef.current
             document.onmousemove = (e) => {
                 const xOffset = dragValue!.offsetLeft;
@@ -23,7 +23,7 @@ const Range = ({onMove = (value: any) => {}, value=0}) => {
                     setSlidePercentage(percentage.toString())
                     onMove(percentage)
                 }
-                firstSliderRef!.current!.onmouseup = () => {
+                firstSliderRef!.current!.onpointerup = () => {
                     dragValue = null
                 }
             }
@@ -198,7 +198,7 @@ const HomeScreen = () => {
                     </div>
 
                     <FeatureWrapper>
-                        <FeatureCard onClick={() => navigate("/loan-apply")}>
+                        <FeatureCard onClick={() => navigate("/loan")}>
                             <div className="head-row">
                                 <img src="/svg/personal-loan-icon.svg" alt="" />
                                 <BsArrowRight />
@@ -218,7 +218,7 @@ const HomeScreen = () => {
 
                             <p>At Doshpal, we understand the needs of SME businesses and...</p>
                         </FeatureCard>
-                        <FeatureCard onClick={() => navigate("/loan-apply")}>
+                        <FeatureCard onClick={() => navigate("/business-loan")}>
                             <div className="head-row">
                                 <img src="/svg/investment-plan-icon.svg" alt="" />
                                 <BsArrowRight />
