@@ -349,7 +349,7 @@ export const RangeSlider = styled.div<{percentage: string}>`
         cursor: pointer;
     }
     .slide-value {
-        display: ${props => parseInt(props.percentage) > 0 ? "flex" : "none"};
+        display: flex;
         justify-content: center;
         align-items: center;
         font-size: 13px;
