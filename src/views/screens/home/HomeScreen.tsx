@@ -17,7 +17,7 @@ const Range = ({onMove = (value: any) => {}, value=0}) => {
     const start = () => {
         capSliderRef!.current!.onpointerdown = () => {
             dragValue = firstSliderRef.current
-            document.onmousemove = (e) => {
+            document.onpointermove = (e) => {
                 const xOffset = dragValue!.offsetLeft;
                 const percentage = Math.floor(((e.clientX - xOffset)/firstSliderRef.current!.clientWidth)*100);
                 if (percentage >= 0 && percentage <= 100) {
