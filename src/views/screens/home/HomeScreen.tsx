@@ -11,19 +11,33 @@ const Range = ({onMove = (value: any) => {}, value=0}) => {
     const firstSliderRef = useRef<HTMLDivElement>(null);
     const [slidePercentage, setSlidePercentage] = useState<string>("0")
 
-    const navigate = useNavigate();
-    let onPressSlider = false;
-    const setOnPressSlider = (value: boolean) => {
-        onPressSlider = value
-    }
-    const onMouseUpfirstSlider = (e: any) => {
-        const xOffset = firstSliderRef.current!.offsetLeft;
-        const percentage = Math.floor(((e.clientX - xOffset)/firstSliderRef.current!.clientWidth)*100);
-        setSlidePercentage(percentage.toString())
-        onMove(percentage)
+    let dragValue: HTMLDivElement | null;
+    
+    const start = () => {
+        firstSliderRef!.current!.onmousedown = () => {
+            dragValue = firstSliderRef.current
+            document.onmousemove = (e) => {
+                const xOffset = dragValue!.offsetLeft;
+                const percentage = Math.floor(((e.clientX - xOffset)/firstSliderRef.current!.clientWidth)*100);
+                if (percentage >= 0 && percentage <= 100) {
+                    setSlidePercentage(percentage.toString())
+                    onMove(percentage)
+                }
+            }
+        }
+
+        firstSliderRef!.current!.onmouseup = () => {
+            dragValue = null
+        }
     }
 
-    return <RangeSlider percentage={slidePercentage} ref={firstSliderRef} onMouseMove={onMouseUpfirstSlider}>
+    useEffect(() => {
+        start()
+    }, [])
+
+
+
+    return <RangeSlider percentage={slidePercentage} ref={firstSliderRef}>
         <span className="drag-circle"></span>
         <span className="slide-value">{value}</span>
     </RangeSlider>
