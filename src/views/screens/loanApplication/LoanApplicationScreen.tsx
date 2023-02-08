@@ -1,9 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { AiOutlineCheck } from 'react-icons/ai'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import AxiosCall from '../../../utils/axios';
 import Footer from '../../components/footer/Footer';
 import Header from '../../components/header/Header';
-import { Content, TopSection, Hero, Wrapper, SectionThree, RangeSlider } from "./styles";
+import Loader from '../../components/Loader/Loader';
+import Message from '../../components/message/Message';
+import { Content, TopSection, Hero, Wrapper, SectionThree, RangeSlider, Verticalspace } from "./styles";
 
 
 const Range = ({onMove = (value: any) => {}, value=0}) => {
@@ -149,6 +152,91 @@ const LoanCalculator = () => {
 const LoanApplicationScreen = () => {
     const [isPersonalLoan, setIspersonalLoan] = useState<boolean>(true);
     const [acceptedTerms, setAcceptedTerms] = useState<boolean>(false);
+    const [selectedAgeRange, setSelectedAgeRange] = useState<string>('none');
+    const [selectedBusinessSector, setSelectedBusinessSector] = useState<string>('none');
+    const [selectedGender, setSelectedGender] = useState<string>('none');
+
+    const firstNameRef = useRef<HTMLInputElement>(null)
+    const lastNameRef = useRef<HTMLInputElement>(null)
+    const loanAmountRef = useRef<HTMLInputElement>(null)
+    const phoneNumberRef = useRef<HTMLInputElement>(null)
+    const emailRef = useRef<HTMLInputElement>(null)
+    const stateRef = useRef<HTMLInputElement>(null)
+
+    const navigate = useNavigate()
+
+
+    const businessSectorList = [
+        "Oil and Gas",
+        "Healthcare",
+        "Agribusiness",
+        "Import and Export Trade",
+        "School Administrators",
+        "SME Business",
+        "Other"
+    ]
+
+    const ageRangeList = [
+        "20 - 29",
+        "30 - 39",
+        "40 - 49",
+        "50 - 59",
+        "60 and above"
+    ]
+    const genderList = [
+        "Male",
+        "Female"
+    ]
+
+    const [isSendingLoanData, setIsSendingLoanData] = useState(false);
+
+    const submitLoan = async (e: any) => {
+        e.preventDefault();
+        try {
+            if (!acceptedTerms) {
+                return Message.error("Please accept our terms and conditions");
+            }
+            if (selectedGender == "none") {
+                return Message.error("Please select a gender");
+            }
+            if (selectedAgeRange == "none") {
+                return Message.error("Please select your age range");
+            }
+            if (!isPersonalLoan && selectedBusinessSector == "none") {
+                return Message.error("Please select business sector");
+            }
+            setIsSendingLoanData(true)
+            const res: any = await AxiosCall({
+                method: "POST",
+                path: "/v1/loan/email/send",
+                data: {
+                    firstName: firstNameRef.current?.value,
+                    lastName: lastNameRef.current?.value,
+                    email: emailRef.current?.value,
+                    phone: phoneNumberRef.current?.value,
+                    state: stateRef.current?.value,
+                    loanAmount: loanAmountRef.current?.value,
+                    gender: selectedGender,
+                    ageRange: selectedAgeRange,
+                    businessSector: selectedBusinessSector,
+                    isPersonal: isPersonalLoan
+                }
+            });
+
+            console.log("response:",res);
+            if (res.status == 1) {
+                setIsSendingLoanData(false)
+                Message.success("Loan application sent successfuly");
+                // navigate("/")
+            } else {
+                setIsSendingLoanData(false)
+                Message.error(res.message)
+            }
+        } catch (err: any) {
+            setIsSendingLoanData(false)
+            Message.error(err?.response.data.message)
+        }
+    }
     return (
         <Wrapper>
             <Content>
@@ -167,19 +255,38 @@ const LoanApplicationScreen = () => {
                                     <span onClick={() => setIspersonalLoan(false)} className={!isPersonalLoan ? 'selected' : ''}>SME Loan</span>
                                 </div>
 
-                                <label htmlFor="fdfsdfsdsd">First Name</label>
-                                <input type="text" name="" id="fdfsdfsdsd" />
-                                <label htmlFor="fdfsdfsdsd">Email Address</label>
-                                <input type="text" name="" id="fdfsdfsdsd" />
-                                <label htmlFor="fdfsdfsdsd">Phone Number</label>
-                                <input type="text" name="" id="fdfsdfsdsd" />
-                                <label htmlFor="fdfsdfsdsd">Loan Amount</label>
-                                <input type="text" name="" id="fdfsdfsdsd" />
+                                <label htmlFor="first-name">First Name</label>
+                                <input ref={firstNameRef} type="text" name="" id="first-name" />
+                                <label htmlFor="last-name">Last Name</label>
+                                <input ref={lastNameRef} type="text" name="" id="last-name" />
+                                <label htmlFor="email-address">Email Address</label>
+                                <input ref={emailRef}  type="text" name="" id="email-address" />
+                                <label htmlFor="loam-amount">Loan Amount</label>
+                                <input ref={loanAmountRef}  type="text" name="" id="loam-amount" />
+                                <label htmlFor="phone-number">Phone Number</label>
+                                <input ref={phoneNumberRef}  type="text" name="" id="phone-number" />
+                                <label htmlFor="state-of-residence">State of residence</label>
+                                <input ref={stateRef}  type="text" name="" id="state-of-residence" />
+                                <label>Gender</label>
+                                <div className="radio-selection">
+                                    {genderList.map(item => <li className={selectedGender == item ? 'active' : ''} onClick={() => setSelectedGender(item)}><span></span> <b>{item}</b></li>)}
+                                </div>
+                                <Verticalspace />
+                                <label>Age Range</label>
+                                <div className="radio-selection">
+                                    {ageRangeList.map(item => <li className={selectedAgeRange == item ? 'active' : ''} onClick={() => setSelectedAgeRange(item)}><span></span> <b>{item}</b></li>)}
+                                </div>
+                                <Verticalspace />
+                                {!isPersonalLoan && <><label>Business Sector</label>
+                                <div className="radio-selection">
+                                    {businessSectorList.map(item => <li className={selectedBusinessSector == item ? 'active' : ''} onClick={() => setSelectedBusinessSector(item)}><span></span> <b>{item}</b></li>)}
+                                </div>
+                                <Verticalspace /></>}
                                 <div className="meta-row" onClick={() => setAcceptedTerms(!acceptedTerms)}>
                                     <span className={!acceptedTerms ? 'accepted' : ''}>{acceptedTerms && <AiOutlineCheck />}</span>
                                     <b>I agree to the terms and conditions </b>
                                 </div>
-                                <button>Submit</button>
+                                <button onClick={submitLoan}>{isSendingLoanData ? <Loader /> : "Submit"}</button>
                             </div>
                             <img src="/img/person-3d.png" alt="3d person icon" />
                         </div>

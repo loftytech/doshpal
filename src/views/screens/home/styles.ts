@@ -61,7 +61,7 @@ export const Hero = styled.div`
     }
 
     .img-sec {
-        display: none;
+        /* display: none; */
     }
 
     @media screen and (min-width: 1024px) {

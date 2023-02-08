@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { BsArrowRight, BsChevronLeft, BsChevronRight } from 'react-icons/bs'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../../components/footer/Footer';
 import Header from '../../components/header/Header';
 import { Content, TopSection, Hero, Wrapper, SectionOne, FeatureWrapper, FeatureCard, SectionTwo, SectionThree, SectionFour, SectionFive, SectionSix, RangeSlider } from "./styles";
@@ -10,6 +10,8 @@ import { Content, TopSection, Hero, Wrapper, SectionOne, FeatureWrapper, Feature
 const Range = ({onMove = (value: any) => {}, value=0}) => {
     const firstSliderRef = useRef<HTMLDivElement>(null);
     const [slidePercentage, setSlidePercentage] = useState<string>("0")
+
+    const navigate = useNavigate();
     let onPressSlider = false;
     const setOnPressSlider = (value: boolean) => {
         onPressSlider = value
@@ -148,6 +150,7 @@ const LoanCalculator = () => {
 
 
 const HomeScreen = () => {
+    const navigate = useNavigate()
     return (
         <Wrapper>
             <Content>
@@ -158,7 +161,7 @@ const HomeScreen = () => {
                             <h6>LOANS</h6>
                             <h2>Quick credit solutions are available for you today!</h2>
                             <span>It takes a supportive partner like Doshpal to grow your business!  Now you can get up to 3 million on loans for as low as 3.5% to help you meet your needs, quickly and conveniently.</span>
-                            <a href="#">Get Started</a>
+                            <a href="/loan-apply">Get Started</a>
                         </div>
 
                         <div className="img-sec">
@@ -181,7 +184,7 @@ const HomeScreen = () => {
                     </div>
 
                     <FeatureWrapper>
-                        <FeatureCard>
+                        <FeatureCard onClick={() => navigate("/loan-apply")}>
                             <div className="head-row">
                                 <img src="/svg/personal-loan-icon.svg" alt="" />
                                 <BsArrowRight />
@@ -201,7 +204,7 @@ const HomeScreen = () => {
 
                             <p>At Doshpal, we understand the needs of SME businesses and...</p>
                         </FeatureCard>
-                        <FeatureCard>
+                        <FeatureCard onClick={() => navigate("/loan-apply")}>
                             <div className="head-row">
                                 <img src="/svg/investment-plan-icon.svg" alt="" />
                                 <BsArrowRight />
@@ -218,10 +221,10 @@ const HomeScreen = () => {
                     <div className="text-content">
                         <h3>We are the best in the</h3>
                         <b>Credit world</b>
-                        <a href="#">Apply for loan</a>
+                        <a href="/loan-apply">Apply for loan</a>
                     </div>
 
-                    <div className="stats-box">
+                    <div className="stats-box" onClick={() => navigate("/loan-apply")}>
                         <b>QUICK <br />DISBUSRE</b>
                         <h2>200m</h2>
                         <h3>Over 200m <br /> disbursed in funds</h3>

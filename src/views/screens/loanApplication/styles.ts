@@ -9,6 +9,10 @@ export const Content = styled.div`
 export const TopSection = styled.div`
     background: #FBF8FF;
 `;
+export const Verticalspace = styled.div`
+    height: 1px;
+    margin-bottom: 20px;
+`;
 export const Hero = styled.div`
     display: flex;
     flex-direction: column;
@@ -103,11 +107,65 @@ export const Hero = styled.div`
         }
 
         label {
-            font-size: 14px;
-            font-weight: 400;
+            font-size: 15px;
+            font-weight: 500;
             color: #000;
-            margin-bottom: 2px;
+            margin-bottom: 8px;
         }
+
+        .radio-selection {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 10px;
+            line-height: 20px;
+
+
+            @media screen and (min-width: 880px) {
+                flex-direction: row;
+            }
+        }
+
+        .radio-selection li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            padding: 0px;
+            height: unset;
+            line-height: unset;
+
+            span {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                margin-right: 10px;
+                line-height: unset;
+                border: 1px solid #5d5b5b;
+            }
+
+            b {
+                font-size: 14px;
+                font-weight: 400;
+                line-height: unset;
+            }
+
+            cursor: pointer;
+        }
+
+
+        .radio-selection li.active span {
+                ::before {
+                    content: "";
+                    display: block;
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 50%;
+                    background-color: #5d5b5b;
+                }
+            }
         
         input {
             height: 45px;

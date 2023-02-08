@@ -11,7 +11,7 @@ let baseURL;
 if (REACT_APP_SERVER_HOST) {
   baseURL = `${REACT_APP_SERVER_HOST}/`;
 } else {
-  const host = "https://skillsonscreen.loftywebtech.com/v1";
+  const host = "https://howfar.loftywebtech.com";
   baseURL = `${host}/`;
 }
 
@@ -25,7 +25,7 @@ const AxiosCall = async (requestObj) => {
     "token": token
   };
 
-  baseURL = "https://skillsonscreen.loftywebtech.com/v1"
+  baseURL = "https://howfar.loftywebtech.com"
  
 
   const url = version ? `${baseURL}${version}/${path}` : `${baseURL}${path}`;
