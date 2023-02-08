@@ -23,12 +23,12 @@ const Range = ({onMove = (value: any) => {}, value=0}) => {
                     setSlidePercentage(percentage.toString())
                     onMove(percentage)
                 }
+                firstSliderRef!.current!.onmouseup = () => {
+                    dragValue = null
+                }
             }
         }
 
-        firstSliderRef!.current!.onmouseup = () => {
-            dragValue = null
-        }
     }
 
     useEffect(() => {
