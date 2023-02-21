@@ -9,6 +9,8 @@ import AbountScreen from './views/screens/about/AbountScreen';
 import LoanScreen from './views/screens/loan/LoanScreen';
 import BusinessLoanScreen from './views/screens/business_loan/BusinessLoanScreen';
 import LoanApplicationScreen from './views/screens/loanApplication/LoanApplicationScreen';
+import InvestScreen from './views/screens/invest/InvestScreen';
+import InvestmentApplicationScreen from './views/screens/investmentApplication/InvestmentApplicationScreen';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           <Route path="/loan" element={<LoanScreen />} />
           <Route path="/business-loan" element={<BusinessLoanScreen />} />
           <Route path="/loan-apply" element={<LoanApplicationScreen />} />
+          <Route path="/invest" element={<InvestScreen />} />
+          <Route path="/invest-apply" element={<InvestmentApplicationScreen />} />
         </Routes>
         </Provider>
       </ThemeProvider>
