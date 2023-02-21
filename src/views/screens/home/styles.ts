@@ -11,7 +11,7 @@ export const TopSection = styled.div`
 `;
 export const Hero = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     padding: 40px 8%;
 
     .text-wrapper {
