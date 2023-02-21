@@ -18,6 +18,7 @@ const BusinessLoanScreen = () => {
                         <div className="text-wrapper">
                             <h3>SME Loans</h3>
                             <span>Do you need working capital for your business? SME loans are available for individuals or corporate bodies looking to set up new businesses or expand established ones.<br /> <br />At Doshpal, we understand the needs of SME businesses and therefore have developed tailor-made loan products on a fast-track platform to help business owners meet their cash-flow needs and expand their businesses.</span>
+                            <Link to="/loan-apply">Get Started</Link>
                         </div>
 
                         <div className="img-sec">

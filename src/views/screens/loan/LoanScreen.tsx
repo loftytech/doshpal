@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Footer from '../../components/footer/Footer';
 import Header from '../../components/header/Header';
 import { Content, TopSection, Hero, Wrapper, SectionTwo, SectionThree, SectionOne } from "./styles";
@@ -15,7 +16,8 @@ const LoanScreen = () => {
                     <Hero>
                         <div className="text-wrapper">
                             <h3>With Personal Loan you get up to 3m</h3>
-                            <span>When you run into an emergency, it's possible not to have the funds to take care of your urgent needs. Doshpal can come through for you!<br /><br /> With proper planning, a personal loan can fill a void in your budget without risking your home or assets. <br /><br /> We’ve got you covered with our quick loans! Get up to 3 million on loans for as low as 3.5% interest today.</span>
+                            <span>When you run into an emergency, it's possible not to have the funds to take care of your urgent needs. Doshpal can come through for you!<br /><br /> With proper planning, a personal loan can fill a void in your budget without risking your home or assets. <br /><br /> We've got you covered with our quick loans! Get up to 3 million on loans for as low as 3.5% interest today.</span>
+                            <Link to="/loan-apply">Get Started</Link>
                         </div>
 
                         <div className="img-sec">

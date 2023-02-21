@@ -39,6 +39,19 @@ export const Hero = styled.div`
             margin-bottom: 40px;
             line-height: 28px;
         }
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: ${props => props.theme.secondaryColor};
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            height: 50px;
+            width: 200px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
     }
 
     .img-sec {

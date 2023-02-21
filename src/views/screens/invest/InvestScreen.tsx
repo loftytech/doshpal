@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Footer from '../../components/footer/Footer';
 import Header from '../../components/header/Header';
 import { Content, TopSection, Hero, Wrapper, SectionTwo, SectionThree, SectionOne } from "./styles";
@@ -20,6 +21,7 @@ const InvestScreen = () => {
                             <br /> Not to worry. We have you covered too. You can get up to 24% on our investment package with us! Now you can put your money to work with our flexible investment options and earn higher returns per annum.
                             <br />Our investment plan is an important tool to help you reach your financial milestones.
                             </span>
+                            <Link to="/invest-apply">Get Started</Link>
                         </div>
 
                         <div className="img-sec">
