@@ -17,7 +17,7 @@ const AbountScreen = () => {
                     <Hero>
                         <div className="text-wrapper">
                             <h2>Doshpal for you;</h2>
-                            <h3>Credit for all</h3>
+                            <h3>Your true money friend</h3>
                             <span>Doshpal, a subsidiary of Kredify, is derived from two words, 'Dosh' and 'Pal', meaning 'Cash' and 'Friend'.<br /><br /> Kredify is a registered financial service company and your one-stop to getting short to medium-term financing. <br /><br /> This opportunity applies to individuals and small and medium-sized enterprises in Nigeria.</span>
                         </div>
 

@@ -34,10 +34,10 @@ export const Hero = styled.div`
         span {
             display: block;
             color: #3C3B3B;
-            font-size: 20px;
-            font-weight: 300;
+            font-size: 15px;
+            font-weight: 400;
             margin-bottom: 40px;
-            line-height: 28px;
+            line-height: 21px;
         }
         a {
             display: flex;

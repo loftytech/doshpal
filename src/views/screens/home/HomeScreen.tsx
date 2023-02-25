@@ -118,7 +118,7 @@ const LoanCalculator = () => {
             <div className="calc-sec">
                 <h2>Your Loan</h2>
                 <h3>Calculator</h3>
-                <p>Calculate your potential loanable amount below. To calculate your loanable amount you need to slide across the bar. <br /> <br /> FOR COLLATERAL LOAN you must tap on “Collateral loan” on the loan type</p>
+                <p>Calculate your potential loanable amount below. To calculate your loanable amount you need to slide across the bar</p>
 
                 <h4>Loan Amount</h4>
                 <Range value={loanAmount} onMove={(value) => { setPercentageLoanSlider(value); }} />
@@ -200,14 +200,14 @@ const HomeScreen = () => {
                     <h2>Securing capital for individuals and SMEs in Nigeria may be tough, but there are options available.</h2>
                     <div className="row">
                         {/* <span>At Doshpal, we cater to the bespoke needs of self-employed business owners: SMEs, self-employed professionals, entertainers, start-ups, and tech entrepreneurs.</span> */}
-                        <div className="slide-control-wrapper">
+                        {/* <div className="slide-control-wrapper">
                             <div className="box">
                                 <BsChevronLeft />
                             </div>
                             <div className="box">
                                 <BsChevronRight />
                             </div>
-                        </div>
+                        </div> */}
                     </div>
 
                     <FeatureWrapper>
