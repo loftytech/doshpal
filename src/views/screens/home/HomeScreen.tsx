@@ -253,8 +253,8 @@ const HomeScreen = () => {
 
                     <div className="stats-box" onClick={() => navigate("/loan-apply")}>
                         <b>QUICK <br />DISBUSRE</b>
-                        <h2>200m</h2>
-                        <h3>Over 200m <br /> disbursed in funds</h3>
+                        <h2>600m</h2>
+                        <h3>Over 600m <br /> disbursed in funds</h3>
                         <p>Doshpal was founded based on the need to fill a gap in the way financial services are offered to individuals and Small and Medium Enterprises.</p>
                     </div>
                     <div className="stats-box">
