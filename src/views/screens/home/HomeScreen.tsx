@@ -3,9 +3,8 @@ import { BsArrowRight, BsChevronLeft, BsChevronRight } from 'react-icons/bs'
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../../components/footer/Footer';
 import Header from '../../components/header/Header';
+import TawkMessengerReact from '@tawk.to/tawk-messenger-react';
 import { Content, TopSection, Hero, Wrapper, SectionOne, FeatureWrapper, FeatureCard, SectionTwo, SectionThree, SectionFour, SectionFive, SectionSix, RangeSlider } from "./styles";
-
-
 
 const Range = ({onMove = (value: any) => {}, value=0}) => {
     const firstSliderRef = useRef<HTMLDivElement>(null);
@@ -282,6 +281,9 @@ const HomeScreen = () => {
                 <SectionSix />
                 <Footer />
             </Content>
+            <TawkMessengerReact
+                propertyId="6406e89f4247f20fefe46a32"
+                widgetId="1gqtfpc54"/>
         </Wrapper>
     );
 }
